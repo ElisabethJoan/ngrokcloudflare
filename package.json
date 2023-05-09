@@ -1,0 +1,15 @@
+{
+  "name": "ngrokcloudflareupdater",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "ngrok": "^5.0.0-beta.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node -r dotenv/config app.js"
+  }
+}
