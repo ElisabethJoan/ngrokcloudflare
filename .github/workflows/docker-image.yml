@@ -1,0 +1,40 @@
+name: Automations
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  Docker-Image-CI:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Docker Login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+    - name: Build Docker image
+      run: |
+        docker build . --file Dockerfile --tag my-image
+        
+    - name: Tag Docker Image
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_REPO: ${{ secrets.DOCKER_REPO }}
+      run: |
+        docker tag my-image $DOCKER_USER/$DOCKER_REPO
+        
+    - name: Push Docker Image
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_REPO: ${{ secrets.DOCKER_REPO }}
+      run: |
+        docker push $DOCKER_USER/$DOCKER_REPO
