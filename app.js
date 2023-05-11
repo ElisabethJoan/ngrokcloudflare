@@ -69,10 +69,11 @@ const url = await ngrok.connect({
   authtoken: process.env.NGROK_AUTH_TOKEN,
 })
 
+console.log("Ngrok forwarder address: ", url)
+
 const ngrokSplit = url.split(":")
 const ngrokAddress = ngrokSplit[1].split("//")[1]
 const ngrokPort = ngrokSplit[2]
-
 
 console.log("Getting Cloudflare Domain Zone Id")
 const zoneId = await getZoneId()
