@@ -1,4 +1,4 @@
-name: Automations
+name: Docker Build
 
 on:
   push:

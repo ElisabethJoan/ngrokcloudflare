@@ -79,8 +79,8 @@ console.log("Getting Cloudflare Domain Zone Id")
 const zoneId = await getZoneId()
 
 console.log("Checking if CNAME and SRV Exist")
-const cnameId = await getDnsRecord(zoneId, process.env.CNAME_NAME)
-const srvId = await getDnsRecord(zoneId, `_minecraft._tcp.${process.env.SRV_NAME}`)
+const cnameId = await getDnsRecord(zoneId, process.env.SERVICE_URL)
+const srvId = await getDnsRecord(zoneId, `_${SERVICE_NAME}._tcp.${process.env.SERVICE_URL}`)
 
 if (cnameId === 0) {
   console.log("CNAME does not exist, creating")
