@@ -1,4 +1,6 @@
-[![Docker Build](https://github.com/ElisabethJoan/ngrokcloudflare/actions/workflows/main.yml/badge.svg)](https://github.com/ElisabethJoan/ngrokcloudflare/actions/workflows/main.yml) [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/ejoan/ngrokcloudflare)
+[![Docker Build](https://github.com/ElisabethJoan/ngrokcloudflare/actions/workflows/main.yml/badge.svg)](https://github.com/ElisabethJoan/ngrokcloudflare/actions/workflows/main.yml)
+
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://hub.docker.com/r/ejoan/ngrokcloudflare)
 
 A small dockerised application that automates the forwarding of TCP services through the free tier of ngrok and updating the relevant Cloudflare CNAME and SRV records whenever the forwarder address changes. Useful for those wanting to expose low bandwidth applications from behind a CGNAT gated connection. (such as a small friends and family minecraft server)
 
